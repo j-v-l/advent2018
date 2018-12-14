@@ -25,5 +25,7 @@ remove_unit <- function(polymer, unit_type) {
   str_replace_all(polymer, paste0("(?i)", unit_type), "")
 }
 
+system.time({
 result <- map_int(letters, function(x) nchar(collapse_polymer(remove_unit(input, x))))
 min(result)
+})

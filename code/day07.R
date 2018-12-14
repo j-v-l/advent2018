@@ -11,7 +11,7 @@ prereqs <- dat %>%
 result <- vector("character", 26)
 prereqs_left <- prereqs
 for (i in 1:26) {
-  next_step <- LETTERS[!LETTERS %in% prereqs_left$step & !LETTERS %in% result][1]
+  next_step <- LETTERS[!LETTERS %in% c(prereqs_left$step, result)][1]
   prereqs_left <- prereqs_left %>%
     filter(prereq != next_step)
   result[i] <- next_step
